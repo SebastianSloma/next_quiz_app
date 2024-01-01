@@ -1,6 +1,7 @@
 import Image from 'next/image';
+import { MotionDiv } from './MotionDiv';
 
-import { motion } from 'framer-motion';
+
 
 export interface AnimeProp {
 	id: string;
@@ -24,14 +25,14 @@ const variants = {
 	visible: { opacity: 1 },
 };
 
-function AnimeCard({ anime }: Prop) {
+function AnimeCard({ anime, index }: Prop) {
 	return (
-		<motion.div
+		<MotionDiv
 			variants={variants}
 			initial='hidden'
 			animate='visible'
 			transition={{
-				daley: 1,
+				daley: index * 0.25,
 				ease: 'easeInOut',
 				duration: 0.5,
 			}}
@@ -81,7 +82,7 @@ function AnimeCard({ anime }: Prop) {
 					</div>
 				</div>
 			</div>
-		</motion.div>
+		</MotionDiv>
 	);
 }
 
